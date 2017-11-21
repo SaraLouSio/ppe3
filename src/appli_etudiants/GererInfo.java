@@ -247,15 +247,15 @@ public class GererInfo extends javax.swing.JDialog {
 
         //on crée la requete avec les données
         String requeteSql = "update utilisateurs set "
-                + "nom=" + modifNom
-                + ", prenom=" + modifPrenom
-                + ", mail=" + modifMail
-                + ", adresse_rue=" + modifRue
-                + ", adresse_ville=" + modifVille
-                + ", adresse_cp=" + modifCp
-                + ", tel_personnel=" + modifTelPerso
-                + ",tel_professionnel=" + modifTelPro
-                + "where id_utilisateur=" + Connexion.getProfilConnecte().getId();
+                + "`nom`='" + modifNom
+                + "', `prenom`='" + modifPrenom
+                + "', `mail`='" + modifMail
+                + "', `adresse_rue`='" + modifRue
+                + "', `adresse_ville`='" + modifVille
+                + "', `adresse_cp`='" + modifCp
+                + "', `tel_personnel`='" + modifTelPerso
+                + "',`tel_professionnel`='" + modifTelPro
+                + "' where `id_utilisateur`=" + Connexion.getProfilConnecte().getId();
 
         // on utilise la classe BddConnect pour lancer la requete
         Integer resRequete = BddConnect.requeteAction(requeteSql);
