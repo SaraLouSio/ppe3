@@ -4,6 +4,7 @@
  */
 package appli_etudiants;
 
+import java.security.NoSuchAlgorithmException;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +23,10 @@ public class InterfaceGraphique extends javax.swing.JFrame {
      */
     private Connexion fenConnexion;
     private Deconnexion fenDeconnexion;
+    private GererInfo fenGererInfo;
+    private ChangerMdp fenChangerMdp;
+    private CreerEmploye fenCreerEmploye;
+    private Promouvoir fenPromouvoir;
 
     /**
      * constructeur : Creates new form InterfaceGraphique
@@ -53,20 +58,24 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPaneBase = new javax.swing.JDesktopPane();
         jDesktopPaneEmploye = new javax.swing.JDesktopPane();
         jLabelMenuEmploye = new javax.swing.JLabel();
         jButtonGenererCv = new javax.swing.JButton();
         jButtonGererInfo = new javax.swing.JButton();
-        jButtonConsulterPosition = new javax.swing.JButton();
         jButtonGererFormation = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabelPosition = new javax.swing.JLabel();
+        jButtonChangerMdpEmploye = new javax.swing.JButton();
         jDesktopPaneResponsable = new javax.swing.JDesktopPane();
         jLabelMenuResponsable = new javax.swing.JLabel();
         jButtonModifierPosition = new javax.swing.JButton();
+        jButtonChangerMdpResponsable = new javax.swing.JButton();
         jDesktopPaneDirigeant = new javax.swing.JDesktopPane();
         jLabelMenuDirigeant = new javax.swing.JLabel();
         jButtonCreerEmploye = new javax.swing.JButton();
-        jButtonPromouvoirEmployé = new javax.swing.JButton();
-        jButtonPromouvoirEmployé1 = new javax.swing.JButton();
+        jButtonPromouvoir = new javax.swing.JButton();
+        jButtonChangerMdpDirigeant = new javax.swing.JButton();
         nomMenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         connexionMenuItem = new javax.swing.JMenuItem();
@@ -78,10 +87,24 @@ public class InterfaceGraphique extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jDesktopPaneEmploye.setBackground(new java.awt.Color(240, 240, 240));
+        org.jdesktop.layout.GroupLayout jDesktopPaneBaseLayout = new org.jdesktop.layout.GroupLayout(jDesktopPaneBase);
+        jDesktopPaneBase.setLayout(jDesktopPaneBaseLayout);
+        jDesktopPaneBaseLayout.setHorizontalGroup(
+            jDesktopPaneBaseLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 300, Short.MAX_VALUE)
+        );
+        jDesktopPaneBaseLayout.setVerticalGroup(
+            jDesktopPaneBaseLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 300, Short.MAX_VALUE)
+        );
 
-        jLabelMenuEmploye.setText("Menu employé");
+        jDesktopPaneEmploye.setBackground(new java.awt.Color(102, 102, 102));
 
+        jLabelMenuEmploye.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelMenuEmploye.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelMenuEmploye.setText("Utilisateur : employé");
+
+        jButtonGenererCv.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButtonGenererCv.setText("Générer un CV");
         jButtonGenererCv.setEnabled(false);
         jButtonGenererCv.addActionListener(new java.awt.event.ActionListener() {
@@ -90,43 +113,58 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             }
         });
 
+        jButtonGererInfo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButtonGererInfo.setText("Gerer les informations personelles");
-        jButtonGererInfo.setEnabled(false);
         jButtonGererInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonGererInfoActionPerformed(evt);
             }
         });
 
-        jButtonConsulterPosition.setText("Consulter sa position");
-        jButtonConsulterPosition.setActionCommand("");
-        jButtonConsulterPosition.setEnabled(false);
-
+        jButtonGererFormation.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButtonGererFormation.setText("Gerer les formations");
         jButtonGererFormation.setEnabled(false);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Position : ");
+
+        jLabelPosition.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelPosition.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPosition.setText("...");
+
+        jButtonChangerMdpEmploye.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButtonChangerMdpEmploye.setText("Changer de mot de passe");
+        jButtonChangerMdpEmploye.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChangerMdpEmployeActionPerformed(evt);
+            }
+        });
 
         jDesktopPaneEmploye.setLayer(jLabelMenuEmploye, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneEmploye.setLayer(jButtonGenererCv, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneEmploye.setLayer(jButtonGererInfo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneEmploye.setLayer(jButtonConsulterPosition, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneEmploye.setLayer(jButtonGererFormation, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneEmploye.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneEmploye.setLayer(jLabelPosition, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneEmploye.setLayer(jButtonChangerMdpEmploye, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         org.jdesktop.layout.GroupLayout jDesktopPaneEmployeLayout = new org.jdesktop.layout.GroupLayout(jDesktopPaneEmploye);
         jDesktopPaneEmploye.setLayout(jDesktopPaneEmployeLayout);
         jDesktopPaneEmployeLayout.setHorizontalGroup(
             jDesktopPaneEmployeLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jDesktopPaneEmployeLayout.createSequentialGroup()
+                .addContainerGap()
                 .add(jDesktopPaneEmployeLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jLabelMenuEmploye)
+                    .add(jButtonGenererCv)
+                    .add(jButtonGererFormation)
                     .add(jDesktopPaneEmployeLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .add(jLabelMenuEmploye))
-                    .add(jDesktopPaneEmployeLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .add(jDesktopPaneEmployeLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jButtonGenererCv)
-                            .add(jButtonConsulterPosition)
-                            .add(jButtonGererInfo)
-                            .add(jButtonGererFormation))))
+                        .add(jLabel1)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jLabelPosition))
+                    .add(jButtonGererInfo)
+                    .add(jButtonChangerMdpEmploye))
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPaneEmployeLayout.setVerticalGroup(
@@ -134,22 +172,29 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             .add(jDesktopPaneEmployeLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(jLabelMenuEmploye)
-                .add(43, 43, 43)
-                .add(jButtonGenererCv, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(11, 11, 11)
+                .add(jDesktopPaneEmployeLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel1)
+                    .add(jLabelPosition))
                 .add(18, 18, 18)
-                .add(jButtonConsulterPosition, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jButtonGenererCv, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(jButtonGererInfo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
                 .add(jButtonGererFormation, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .add(18, 18, 18)
+                .add(jButtonChangerMdpEmploye, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jDesktopPaneResponsable.setBackground(new java.awt.Color(240, 240, 240));
+        jDesktopPaneResponsable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jDesktopPaneResponsable.setPreferredSize(new java.awt.Dimension(191, 89));
 
-        jLabelMenuResponsable.setText("Menu responsable");
+        jLabelMenuResponsable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelMenuResponsable.setText("Utilisateur : responsable");
 
+        jButtonModifierPosition.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButtonModifierPosition.setText("<html>Modifier la position <br/> d'un employé<html>");
         jButtonModifierPosition.setEnabled(false);
         jButtonModifierPosition.addActionListener(new java.awt.event.ActionListener() {
@@ -158,22 +203,29 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             }
         });
 
+        jButtonChangerMdpResponsable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButtonChangerMdpResponsable.setText("Changer de mot de passe");
+        jButtonChangerMdpResponsable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChangerMdpResponsableActionPerformed(evt);
+            }
+        });
+
         jDesktopPaneResponsable.setLayer(jLabelMenuResponsable, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneResponsable.setLayer(jButtonModifierPosition, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneResponsable.setLayer(jButtonChangerMdpResponsable, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         org.jdesktop.layout.GroupLayout jDesktopPaneResponsableLayout = new org.jdesktop.layout.GroupLayout(jDesktopPaneResponsable);
         jDesktopPaneResponsable.setLayout(jDesktopPaneResponsableLayout);
         jDesktopPaneResponsableLayout.setHorizontalGroup(
             jDesktopPaneResponsableLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jDesktopPaneResponsableLayout.createSequentialGroup()
+                .addContainerGap()
                 .add(jDesktopPaneResponsableLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jDesktopPaneResponsableLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .add(jLabelMenuResponsable))
-                    .add(jDesktopPaneResponsableLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .add(jButtonModifierPosition, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                    .add(jLabelMenuResponsable)
+                    .add(jButtonModifierPosition, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jButtonChangerMdpResponsable))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPaneResponsableLayout.setVerticalGroup(
             jDesktopPaneResponsableLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -181,46 +233,48 @@ public class InterfaceGraphique extends javax.swing.JFrame {
                 .addContainerGap()
                 .add(jLabelMenuResponsable)
                 .add(18, 18, 18)
-                .add(jButtonModifierPosition, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jButtonModifierPosition, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(jButtonChangerMdpResponsable, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jDesktopPaneDirigeant.setBackground(new java.awt.Color(240, 240, 240));
 
-        jLabelMenuDirigeant.setText("Menu dirigeant");
+        jLabelMenuDirigeant.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabelMenuDirigeant.setText("Utilisateur : dirigeant");
 
+        jButtonCreerEmploye.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButtonCreerEmploye.setText("Créer un employé");
         jButtonCreerEmploye.setToolTipText("");
-        jButtonCreerEmploye.setActionCommand("Créer un employé");
-        jButtonCreerEmploye.setEnabled(false);
         jButtonCreerEmploye.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreerEmployeActionPerformed(evt);
             }
         });
 
-        jButtonPromouvoirEmployé.setText("Promouvoir un employé");
-        jButtonPromouvoirEmployé.setToolTipText("");
-        jButtonPromouvoirEmployé.setEnabled(false);
-        jButtonPromouvoirEmployé.addActionListener(new java.awt.event.ActionListener() {
+        jButtonPromouvoir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButtonPromouvoir.setText("Promouvoir employé");
+        jButtonPromouvoir.setToolTipText("");
+        jButtonPromouvoir.setActionCommand("Promouvoir employé");
+        jButtonPromouvoir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPromouvoirEmployéActionPerformed(evt);
+                jButtonPromouvoirActionPerformed(evt);
             }
         });
 
-        jButtonPromouvoirEmployé1.setText("Promouvoir un employé");
-        jButtonPromouvoirEmployé1.setToolTipText("");
-        jButtonPromouvoirEmployé1.setEnabled(false);
-        jButtonPromouvoirEmployé1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonChangerMdpDirigeant.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButtonChangerMdpDirigeant.setText("Changer de mot de passe");
+        jButtonChangerMdpDirigeant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPromouvoirEmployé1ActionPerformed(evt);
+                jButtonChangerMdpDirigeantActionPerformed(evt);
             }
         });
 
         jDesktopPaneDirigeant.setLayer(jLabelMenuDirigeant, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPaneDirigeant.setLayer(jButtonCreerEmploye, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneDirigeant.setLayer(jButtonPromouvoirEmployé, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPaneDirigeant.setLayer(jButtonPromouvoirEmployé1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneDirigeant.setLayer(jButtonPromouvoir, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPaneDirigeant.setLayer(jButtonChangerMdpDirigeant, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         org.jdesktop.layout.GroupLayout jDesktopPaneDirigeantLayout = new org.jdesktop.layout.GroupLayout(jDesktopPaneDirigeant);
         jDesktopPaneDirigeant.setLayout(jDesktopPaneDirigeantLayout);
@@ -231,9 +285,9 @@ public class InterfaceGraphique extends javax.swing.JFrame {
                 .add(jDesktopPaneDirigeantLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jLabelMenuDirigeant)
                     .add(jButtonCreerEmploye)
-                    .add(jButtonPromouvoirEmployé)
-                    .add(jButtonPromouvoirEmployé1))
-                .addContainerGap(313, Short.MAX_VALUE))
+                    .add(jButtonPromouvoir)
+                    .add(jButtonChangerMdpDirigeant))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDesktopPaneDirigeantLayout.setVerticalGroup(
             jDesktopPaneDirigeantLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -243,10 +297,10 @@ public class InterfaceGraphique extends javax.swing.JFrame {
                 .add(18, 18, 18)
                 .add(jButtonCreerEmploye, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
-                .add(jButtonPromouvoirEmployé, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jButtonPromouvoir, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(18, 18, 18)
-                .add(jButtonPromouvoirEmployé1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .add(jButtonChangerMdpDirigeant, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         fileMenu.setMnemonic('f');
@@ -303,17 +357,27 @@ public class InterfaceGraphique extends javax.swing.JFrame {
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jDesktopPaneEmploye)
             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(org.jdesktop.layout.GroupLayout.TRAILING, jDesktopPaneResponsable, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE))
+                .add(org.jdesktop.layout.GroupLayout.TRAILING, jDesktopPaneResponsable, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(jDesktopPaneDirigeant))
+            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
+                    .add(0, 0, Short.MAX_VALUE)
+                    .add(jDesktopPaneBase, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jDesktopPaneEmploye)
             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(org.jdesktop.layout.GroupLayout.TRAILING, jDesktopPaneResponsable, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE))
+                .add(org.jdesktop.layout.GroupLayout.TRAILING, jDesktopPaneResponsable, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE))
             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                 .add(jDesktopPaneDirigeant))
+            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(layout.createSequentialGroup()
+                    .add(0, 0, Short.MAX_VALUE)
+                    .add(jDesktopPaneBase, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -348,7 +412,8 @@ public class InterfaceGraphique extends javax.swing.JFrame {
 
     private void jButtonGererInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGererInfoActionPerformed
         // TODO add your handling code here:
-        
+        fenGererInfo = new GererInfo(this, true);
+        this.fenGererInfo.setVisible(true);
     }//GEN-LAST:event_jButtonGererInfoActionPerformed
 
     private void jButtonModifierPositionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModifierPositionActionPerformed
@@ -357,15 +422,33 @@ public class InterfaceGraphique extends javax.swing.JFrame {
 
     private void jButtonCreerEmployeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreerEmployeActionPerformed
         // TODO add your handling code here:
+        this.fenCreerEmploye = new CreerEmploye(this, true);
+        this.fenCreerEmploye.setVisible(true);
     }//GEN-LAST:event_jButtonCreerEmployeActionPerformed
 
-    private void jButtonPromouvoirEmployéActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPromouvoirEmployéActionPerformed
+    private void jButtonPromouvoirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPromouvoirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonPromouvoirEmployéActionPerformed
+        this.fenPromouvoir=new Promouvoir(this, true);
+        this.fenPromouvoir.setVisible(true);
+    }//GEN-LAST:event_jButtonPromouvoirActionPerformed
 
-    private void jButtonPromouvoirEmployé1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPromouvoirEmployé1ActionPerformed
+    private void jButtonChangerMdpEmployeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangerMdpEmployeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonPromouvoirEmployé1ActionPerformed
+        this.fenChangerMdp = new ChangerMdp(this, true);
+        this.fenChangerMdp.setVisible(true);
+    }//GEN-LAST:event_jButtonChangerMdpEmployeActionPerformed
+
+    private void jButtonChangerMdpResponsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangerMdpResponsableActionPerformed
+        // TODO add your handling code here:
+        this.fenChangerMdp = new ChangerMdp(this, true);
+        this.fenChangerMdp.setVisible(true);
+    }//GEN-LAST:event_jButtonChangerMdpResponsableActionPerformed
+
+    private void jButtonChangerMdpDirigeantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangerMdpDirigeantActionPerformed
+        // TODO add your handling code here:
+        this.fenChangerMdp = new ChangerMdp(this, true);
+        this.fenChangerMdp.setVisible(true);
+    }//GEN-LAST:event_jButtonChangerMdpDirigeantActionPerformed
     public void connecte(String leNom) {
         //maj de l'etat de la connexion
         this.connecte = true;
@@ -393,6 +476,7 @@ public class InterfaceGraphique extends javax.swing.JFrame {
      */
     public void setInterfaceEmployeVisible() {
         this.jDesktopPaneEmploye.setVisible(true);
+        this.jLabelPosition.setText(Connexion.getProfilConnecte().getGrade());
     }
 
     /**
@@ -450,20 +534,24 @@ public class InterfaceGraphique extends javax.swing.JFrame {
     private javax.swing.JMenuItem connexionMenuItem;
     private javax.swing.JMenuItem deconnexionMenuItem;
     private javax.swing.JMenu fileMenu;
-    private javax.swing.JButton jButtonConsulterPosition;
+    private javax.swing.JButton jButtonChangerMdpDirigeant;
+    private javax.swing.JButton jButtonChangerMdpEmploye;
+    private javax.swing.JButton jButtonChangerMdpResponsable;
     private javax.swing.JButton jButtonCreerEmploye;
     private javax.swing.JButton jButtonGenererCv;
     private javax.swing.JButton jButtonGererFormation;
     private javax.swing.JButton jButtonGererInfo;
     private javax.swing.JButton jButtonModifierPosition;
-    private javax.swing.JButton jButtonPromouvoirEmployé;
-    private javax.swing.JButton jButtonPromouvoirEmployé1;
+    private javax.swing.JButton jButtonPromouvoir;
+    private javax.swing.JDesktopPane jDesktopPaneBase;
     private javax.swing.JDesktopPane jDesktopPaneDirigeant;
     private javax.swing.JDesktopPane jDesktopPaneEmploye;
     private javax.swing.JDesktopPane jDesktopPaneResponsable;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelMenuDirigeant;
     private javax.swing.JLabel jLabelMenuEmploye;
     private javax.swing.JLabel jLabelMenuResponsable;
+    private javax.swing.JLabel jLabelPosition;
     private javax.swing.JMenuBar nomMenuBar;
     private javax.swing.JMenu nomjMenu;
     // End of variables declaration//GEN-END:variables
