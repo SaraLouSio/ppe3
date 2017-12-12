@@ -211,10 +211,9 @@ public class Connexion extends javax.swing.JDialog {
                     String id_grade = lignesRetournees.getString("utilisateurs.id_grade");
                     String role = lignesRetournees.getString("libelle_role");
                     String id_role = lignesRetournees.getString("utilisateurs.id_role");
-                    
 
                     // crée le profil de la personne
-                    this.profilConnecte = new Personne(Integer.parseInt(id), nom, prenom, mail, adresse_rue, adresse_cp, adresse_ville, telPerso, telPro,siteWeb, grade, Integer.parseInt(id_grade), role, Integer.parseInt(id_role));
+                    this.profilConnecte = new Personne(Integer.parseInt(id), nom, prenom, mail, adresse_rue, adresse_cp, adresse_ville, telPerso, telPro, siteWeb, grade, Integer.parseInt(id_grade), role, Integer.parseInt(id_role));
                     //rend visible linterface selon le role
 
                     if (this.profilConnecte.getId_grade() == 1) {
